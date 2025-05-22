@@ -1,4 +1,7 @@
-import User.User;
+import clients.UserClient;
+import models.LoginUserRequest;
+import models.User;
+import models.UserCreateRequest;
 import org.junit.Test;
 import org.junit.After;
 import org.junit.Before;
@@ -17,20 +20,37 @@ public class UserAccountTest {
 
     private User user;
     private ObjHomePage objHomePage;
+    private UserClient userClient;
 
     @Before
     public void setUp() {
+        userClient = new UserClient();
         user = GenerateUser.getRandomUser();
+        UserCreateRequest userCreateRequest = new UserCreateRequest(
+                user.getEmail(),
+                user.getPassword(),
+                user.getName()
+        );
+        userClient.createUser(userCreateRequest).statusCode(200);
+
         objHomePage = open(ObjHomePage.URL, ObjHomePage.class);
-        objHomePage.clickLoginButton()
-                .clickRegisterLink()
-                .fillRegisterForm(user.getName(), user.getEmail(), user.getPassword())
-                .clickRegisterButton(Condition.hidden);
-        objHomePage = null;
     }
 
     @After
     public void clearState() {
+        try {
+            LoginUserRequest loginUserRequest = new LoginUserRequest(
+                    user.getEmail(),
+                    user.getPassword()
+            );
+            String accessToken = userClient.getAccessToken(loginUserRequest);
+            if (accessToken != null) {
+                userClient.deleteUser(accessToken).statusCode(202);
+            }
+        } catch (Exception e) {
+            System.out.println("Удаление пользователя не удалось: " + e.getMessage());
+        }
+
         user = null;
         Selenide.clearBrowserLocalStorage();
     }
@@ -72,5 +92,7 @@ public class UserAccountTest {
 
         assertFalse(isDisplayed);
     }
+
+
 
 }
