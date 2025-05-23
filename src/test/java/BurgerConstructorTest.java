@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.junit.Assert.*;
 
 @Epic("Navigate burger constructor")
-public class BurgerConstructorTest {
+public class BurgerConstructorTest extends ParameterizedBaseTest {
 
     private ObjHomePage objHomePage;
 
@@ -20,21 +20,21 @@ public class BurgerConstructorTest {
 
     @Test
     @DisplayName("Navigate to last bun ingredient")
-    public void navigateToBunIngredient() {
+    public void navigateToBunIngredientTest() {
         boolean isActive = objHomePage.findBunIngredient();
         assertTrue("Bun tab should be active after clicking bun ingredient", isActive);
     }
 
     @Test
     @DisplayName("Navigate to last sauce ingredient")
-    public void navigateToSauceIngredient() {
+    public void navigateToSauceIngredientTest() {
         boolean isActive = objHomePage.findSauceIngredient();
         assertTrue("Sauce tab should be active after clicking sauce ingredient", isActive);
     }
 
     @Test
     @DisplayName("Navigate to last filling ingredient")
-    public void navigateToFillingIngredient() {
+    public void navigateToFillingIngredientTest() {
         boolean isActive = objHomePage.findFillingIngredient();
         assertTrue("Filling tab should be active after clicking filling ingredient", isActive);
     }

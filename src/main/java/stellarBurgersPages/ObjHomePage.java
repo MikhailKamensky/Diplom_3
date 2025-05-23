@@ -25,6 +25,8 @@ public class ObjHomePage {
     @FindBy(how = How.XPATH, using = ".//div[contains(@class, 'tab_tab__1SPyG')][3]")
     private SelenideElement fillingTab;
 
+    String activeClassMarker = "tab_tab_type_current__2BEPc";
+
     @Step("Click account button")
     public ObjLoginPage clickAccountButton() {
         accountButton.click();
@@ -48,7 +50,7 @@ public class ObjHomePage {
         SelenideElement bun = menuIngredients.get(0).lastChild();
         bun.scrollIntoView(true);
         bun.click();
-        return bunTab.has(cssClass("tab_tab_type_current__2BEPc"));
+        return bunTab.has(cssClass(activeClassMarker));
     }
 
     @Step("Find last sauce ingredient")
@@ -56,7 +58,7 @@ public class ObjHomePage {
         SelenideElement sauce = menuIngredients.get(1).lastChild();
         sauce.scrollIntoView(true);
         sauce.click();
-        return sauceTab.has(cssClass("tab_tab_type_current__2BEPc"));
+        return sauceTab.has(cssClass(activeClassMarker));
     }
 
     @Step("Find last filling ingredient")
@@ -64,7 +66,7 @@ public class ObjHomePage {
         SelenideElement filling = menuIngredients.get(2).lastChild();
         filling.scrollIntoView(true);
         filling.click();
-        return fillingTab.has(cssClass("tab_tab_type_current__2BEPc"));
+        return fillingTab.has(cssClass(activeClassMarker));
     }
 
 }

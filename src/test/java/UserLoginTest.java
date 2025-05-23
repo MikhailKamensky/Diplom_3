@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.junit.Assert.*;
 
 @Epic("Login user")
-public class UserLoginTest {
+public class UserLoginTest extends ParameterizedBaseTest {
 
     private User user;
     private ObjHomePage objHomePage;
@@ -57,7 +57,7 @@ public class UserLoginTest {
 
     @Test
     @DisplayName("Login user by login button")
-    public void loginUserByLoginButton() {
+    public void loginUserByLoginButtonTest() {
         objHomePage = open(ObjHomePage.URL, ObjHomePage.class);
         boolean isDisplayed = objHomePage.clickLoginButton()
                 .fillLoginForm(user.getEmail(), user.getPassword())
@@ -68,7 +68,7 @@ public class UserLoginTest {
 
     @Test
     @DisplayName("Login user by account button")
-    public void loginUserByAccountButton() {
+    public void loginUserByAccountButtonTest() {
         objHomePage = open(ObjHomePage.URL, ObjHomePage.class);
         boolean isDisplayed = objHomePage.clickAccountButton()
                 .fillLoginForm(user.getEmail(), user.getPassword())
@@ -79,7 +79,7 @@ public class UserLoginTest {
 
     @Test
     @DisplayName("Login user by register page")
-    public void loginUserByRegisterPage() {
+    public void loginUserByRegisterPageTest() {
         objHomePage = open(ObjHomePage.URL, ObjHomePage.class);
         boolean isDisplayed = objHomePage.clickLoginButton()
                 .clickRegisterLink()
@@ -92,7 +92,7 @@ public class UserLoginTest {
 
     @Test
     @DisplayName("Login user by forgot password page")
-    public void loginUserByForgotPasswordPage() {
+    public void loginUserByForgotPasswordPageTest() {
         objHomePage = open(ObjHomePage.URL, ObjHomePage.class);
         boolean isDisplayed = objHomePage.clickLoginButton()
                 .clickForgotPasswordLink()

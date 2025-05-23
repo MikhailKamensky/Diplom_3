@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.junit.Assert.*;
 
 @Epic("Logout user and transitions between pages")
-public class UserAccountTest {
+public class UserAccountTest extends ParameterizedBaseTest {
 
     private User user;
     private ObjHomePage objHomePage;
@@ -57,7 +57,7 @@ public class UserAccountTest {
 
     @Test
     @DisplayName("Transition user to constructor")
-    public void transitionToConstructor() {
+    public void transitionToConstructorTest() {
         objHomePage = open(ObjHomePage.URL, ObjHomePage.class);
         String url = objHomePage.clickAccountButton()
                 .fillLoginForm(user.getEmail(), user.getPassword())
@@ -69,7 +69,7 @@ public class UserAccountTest {
 
     @Test
     @DisplayName("Transition user to logo burger")
-    public void transitionToLogoBurger() {
+    public void transitionToLogoBurgerTest() {
         objHomePage = open(ObjHomePage.URL, ObjHomePage.class);
         String url = objHomePage.clickAccountButton()
                 .fillLoginForm(user.getEmail(), user.getPassword())
@@ -81,7 +81,7 @@ public class UserAccountTest {
 
     @Test
     @DisplayName("Logout user by logout button")
-    public void logoutUserByLogoutButton() {
+    public void logoutUserByLogoutButtonTest() {
         objHomePage = open(ObjHomePage.URL, ObjHomePage.class);
         objHomePage.clickAccountButton()
                 .fillLoginForm(user.getEmail(), user.getPassword())

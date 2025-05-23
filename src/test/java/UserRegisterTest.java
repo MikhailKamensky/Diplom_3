@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 
 
 @Epic("Register user")
-public class UserRegisterTest {
+public class UserRegisterTest extends ParameterizedBaseTest {
 
     private User user;
     private ObjHomePage objHomePage;
@@ -50,7 +50,7 @@ public class UserRegisterTest {
 
     @Test
     @DisplayName("Register user by valid credentials")
-    public void registerUserByValidCredentials() {
+    public void registerUserByValidCredentialsTest() {
         boolean isDisplayed = objHomePage.clickLoginButton()
                 .clickRegisterLink()
                 .fillRegisterForm(user.getName(), user.getEmail(), user.getPassword())
@@ -61,7 +61,7 @@ public class UserRegisterTest {
 
     @Test
     @DisplayName("Register user by invalid password")
-    public void registerUserByInvalidPassword() {
+    public void registerUserByInvalidPasswordTest() {
         boolean isDisplayed = objHomePage.clickLoginButton()
                 .clickRegisterLink()
                 .fillRegisterForm(user.getName(), user.getEmail(), "888")
@@ -72,7 +72,7 @@ public class UserRegisterTest {
 
     @Test
     @DisplayName("Register user is displayed password error")
-    public void registerUserIsDisplayedPasswordError() {
+    public void registerUserIsDisplayedPasswordErrorTest() {
         boolean isDisplayed = objHomePage.clickLoginButton()
                 .clickRegisterLink()
                 .fillRegisterForm(user.getName(), user.getEmail(), "888")
