@@ -1,4 +1,5 @@
 import clients.UserClient;
+import io.qameta.allure.Description;
 import models.LoginUserRequest;
 import  models.User;
 import models.UserCreateRequest;
@@ -57,6 +58,7 @@ public class UserLoginTest extends ParameterizedBaseTest {
 
     @Test
     @DisplayName("Login user by login button")
+    @Description("Verify successful user login when authenticating via the main login button on the home page")
     public void loginUserByLoginButtonTest() {
         objHomePage = open(ObjHomePage.URL, ObjHomePage.class);
         boolean isDisplayed = objHomePage.clickLoginButton()
@@ -68,6 +70,7 @@ public class UserLoginTest extends ParameterizedBaseTest {
 
     @Test
     @DisplayName("Login user by account button")
+    @Description("Verify successful user login when accessing the login form through the account button")
     public void loginUserByAccountButtonTest() {
         objHomePage = open(ObjHomePage.URL, ObjHomePage.class);
         boolean isDisplayed = objHomePage.clickAccountButton()
@@ -79,6 +82,7 @@ public class UserLoginTest extends ParameterizedBaseTest {
 
     @Test
     @DisplayName("Login user by register page")
+    @Description("Verify successful user login after navigating from registration page to login form")
     public void loginUserByRegisterPageTest() {
         objHomePage = open(ObjHomePage.URL, ObjHomePage.class);
         boolean isDisplayed = objHomePage.clickLoginButton()
@@ -92,6 +96,7 @@ public class UserLoginTest extends ParameterizedBaseTest {
 
     @Test
     @DisplayName("Login user by forgot password page")
+    @Description("Verify successful user login after navigating from password recovery page to login form")
     public void loginUserByForgotPasswordPageTest() {
         objHomePage = open(ObjHomePage.URL, ObjHomePage.class);
         boolean isDisplayed = objHomePage.clickLoginButton()
@@ -102,5 +107,4 @@ public class UserLoginTest extends ParameterizedBaseTest {
 
         assertFalse(isDisplayed);
     }
-
 }

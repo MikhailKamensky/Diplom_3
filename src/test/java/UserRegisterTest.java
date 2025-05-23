@@ -1,4 +1,5 @@
 import clients.UserClient;
+import io.qameta.allure.Description;
 import models.LoginUserRequest;
 import models.User;
 import org.junit.Test;
@@ -50,6 +51,7 @@ public class UserRegisterTest extends ParameterizedBaseTest {
 
     @Test
     @DisplayName("Register user by valid credentials")
+    @Description("Verify successful user registration with valid credentials (name, email, password) and automatic login")
     public void registerUserByValidCredentialsTest() {
         boolean isDisplayed = objHomePage.clickLoginButton()
                 .clickRegisterLink()
@@ -61,6 +63,7 @@ public class UserRegisterTest extends ParameterizedBaseTest {
 
     @Test
     @DisplayName("Register user by invalid password")
+    @Description("Verify the system prevents registration when using an invalid short password (less than 6 characters)")
     public void registerUserByInvalidPasswordTest() {
         boolean isDisplayed = objHomePage.clickLoginButton()
                 .clickRegisterLink()
@@ -72,6 +75,7 @@ public class UserRegisterTest extends ParameterizedBaseTest {
 
     @Test
     @DisplayName("Register user is displayed password error")
+    @Description("Verify the system displays proper error message when attempting registration with invalid password")
     public void registerUserIsDisplayedPasswordErrorTest() {
         boolean isDisplayed = objHomePage.clickLoginButton()
                 .clickRegisterLink()

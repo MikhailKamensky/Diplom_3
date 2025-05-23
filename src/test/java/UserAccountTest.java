@@ -1,4 +1,5 @@
 import clients.UserClient;
+import io.qameta.allure.Description;
 import models.LoginUserRequest;
 import models.User;
 import models.UserCreateRequest;
@@ -57,6 +58,7 @@ public class UserAccountTest extends ParameterizedBaseTest {
 
     @Test
     @DisplayName("Transition user to constructor")
+    @Description("Verify that clicking the 'Constructor' button redirects the user to the main page (home page)")
     public void transitionToConstructorTest() {
         objHomePage = open(ObjHomePage.URL, ObjHomePage.class);
         String url = objHomePage.clickAccountButton()
@@ -69,6 +71,7 @@ public class UserAccountTest extends ParameterizedBaseTest {
 
     @Test
     @DisplayName("Transition user to logo burger")
+    @Description("Verify that clicking the 'Burger Logo' redirects the user to the main page (home page)")
     public void transitionToLogoBurgerTest() {
         objHomePage = open(ObjHomePage.URL, ObjHomePage.class);
         String url = objHomePage.clickAccountButton()
@@ -81,6 +84,7 @@ public class UserAccountTest extends ParameterizedBaseTest {
 
     @Test
     @DisplayName("Logout user by logout button")
+    @Description("Verify that clicking the 'Logout' button successfully signs the user out and hides the account page")
     public void logoutUserByLogoutButtonTest() {
         objHomePage = open(ObjHomePage.URL, ObjHomePage.class);
         objHomePage.clickAccountButton()
@@ -92,7 +96,4 @@ public class UserAccountTest extends ParameterizedBaseTest {
 
         assertFalse(isDisplayed);
     }
-
-
-
 }

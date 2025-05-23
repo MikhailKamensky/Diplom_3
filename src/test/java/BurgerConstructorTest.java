@@ -1,3 +1,4 @@
+import io.qameta.allure.Description;
 import org.junit.Test;
 import org.junit.Before;
 import io.qameta.allure.Epic;
@@ -20,6 +21,7 @@ public class BurgerConstructorTest extends ParameterizedBaseTest {
 
     @Test
     @DisplayName("Navigate to last bun ingredient")
+    @Description("Verify that Bun tab becomes active when user clicks on a bun ingredient in the constructor")
     public void navigateToBunIngredientTest() {
         boolean isActive = objHomePage.findBunIngredient();
         assertTrue("Bun tab should be active after clicking bun ingredient", isActive);
@@ -27,6 +29,7 @@ public class BurgerConstructorTest extends ParameterizedBaseTest {
 
     @Test
     @DisplayName("Navigate to last sauce ingredient")
+    @Description("Verify that Sauce tab becomes active when user clicks on a sauce ingredient in the constructor")
     public void navigateToSauceIngredientTest() {
         boolean isActive = objHomePage.findSauceIngredient();
         assertTrue("Sauce tab should be active after clicking sauce ingredient", isActive);
@@ -34,6 +37,7 @@ public class BurgerConstructorTest extends ParameterizedBaseTest {
 
     @Test
     @DisplayName("Navigate to last filling ingredient")
+    @Description("Verify that Filling tab becomes active when user clicks on a filling ingredient in the constructor")
     public void navigateToFillingIngredientTest() {
         boolean isActive = objHomePage.findFillingIngredient();
         assertTrue("Filling tab should be active after clicking filling ingredient", isActive);
