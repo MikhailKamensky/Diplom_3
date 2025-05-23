@@ -6,6 +6,7 @@ import org.openqa.selenium.support.How;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.ElementsCollection;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
 
 public class ObjHomePage {
 
@@ -16,6 +17,13 @@ public class ObjHomePage {
     private SelenideElement loginButton;
     @FindBy(how = How.CLASS_NAME, using = "BurgerIngredients_ingredients__list__2A-mT")
     private ElementsCollection menuIngredients;
+
+    @FindBy(how = How.XPATH, using = ".//div[contains(@class, 'tab_tab__1SPyG')][1]")
+    private SelenideElement bunTab;
+    @FindBy(how = How.XPATH, using = ".//div[contains(@class, 'tab_tab__1SPyG')][2]")
+    private SelenideElement sauceTab;
+    @FindBy(how = How.XPATH, using = ".//div[contains(@class, 'tab_tab__1SPyG')][3]")
+    private SelenideElement fillingTab;
 
     @Step("Click account button")
     public ObjLoginPage clickAccountButton() {
@@ -40,7 +48,7 @@ public class ObjHomePage {
         SelenideElement bun = menuIngredients.get(0).lastChild();
         bun.scrollIntoView(true);
         bun.click();
-        return bun.isDisplayed();
+        return bunTab.has(cssClass("tab_tab_type_current__2BEPc"));
     }
 
     @Step("Find last sauce ingredient")
@@ -48,7 +56,7 @@ public class ObjHomePage {
         SelenideElement sauce = menuIngredients.get(1).lastChild();
         sauce.scrollIntoView(true);
         sauce.click();
-        return sauce.isDisplayed();
+        return sauceTab.has(cssClass("tab_tab_type_current__2BEPc"));
     }
 
     @Step("Find last filling ingredient")
@@ -56,7 +64,7 @@ public class ObjHomePage {
         SelenideElement filling = menuIngredients.get(2).lastChild();
         filling.scrollIntoView(true);
         filling.click();
-        return filling.isDisplayed();
+        return fillingTab.has(cssClass("tab_tab_type_current__2BEPc"));
     }
 
 }

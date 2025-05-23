@@ -21,22 +21,22 @@ public class BurgerConstructorTest {
     @Test
     @DisplayName("Navigate to last bun ingredient")
     public void navigateToBunIngredient() {
-        boolean isDisplayed = objHomePage.findBunIngredient();
-        assertTrue(isDisplayed);
+        boolean isActive = objHomePage.findBunIngredient();
+        assertTrue("Bun tab should be active after clicking bun ingredient", isActive);
     }
 
     @Test
     @DisplayName("Navigate to last sauce ingredient")
     public void navigateToSauceIngredient() {
-        boolean isDisplayed = objHomePage.findSauceIngredient();
-        assertTrue(isDisplayed);
+        boolean isActive = objHomePage.findSauceIngredient();
+        assertTrue("Sauce tab should be active after clicking sauce ingredient", isActive);
     }
 
     @Test
     @DisplayName("Navigate to last filling ingredient")
     public void navigateToFillingIngredient() {
-        boolean isDisplayed = objHomePage.findFillingIngredient();
-        assertTrue(isDisplayed);
+        boolean isActive = objHomePage.findFillingIngredient();
+        assertTrue("Filling tab should be active after clicking filling ingredient", isActive);
     }
 
 }
